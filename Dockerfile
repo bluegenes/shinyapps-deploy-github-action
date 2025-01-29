@@ -7,7 +7,8 @@ FROM rocker/shiny-verse:latest
 RUN apt-get update && apt-get install -y \
     libssl-dev \
     libcurl4-openssl-dev \
-    libproj-dev
+    libproj-dev \
+    libgdal-dev
 RUN install2.r rsconnect renv
 
 # copy deploy script to root of the workspace
