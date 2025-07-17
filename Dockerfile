@@ -10,7 +10,7 @@ RUN apt-get update && apt-get install -y \
     libproj-dev \
     libgdal-dev \
     libudunits2-dev \
-    gdal-bin
+    gdal-bin \
     git
 RUN install2.r rsconnect renv
 
