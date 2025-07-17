@@ -9,7 +9,9 @@ RUN apt-get update && apt-get install -y \
     libcurl4-openssl-dev \
     libproj-dev \
     libgdal-dev \
-    libudunits2-dev
+    libudunits2-dev \
+    gdal-bin
+    git
 RUN install2.r rsconnect renv
 
 # copy deploy script to root of the workspace
