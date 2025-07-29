@@ -12,7 +12,8 @@ RUN apt-get update && apt-get install -y \
     libudunits2-dev \
     gdal-bin \
     git \
-    libabsl-dev
+    libabsl-dev \
+    pkg-config
 RUN install2.r rsconnect renv
 
 # copy deploy script to root of the workspace
