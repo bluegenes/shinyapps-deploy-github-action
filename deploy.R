@@ -3,7 +3,7 @@ cat("loading packages from:", paste("\n - ", .libPaths(), collapse = ""), "\n\n"
 
 # use renv to detect and install required packages.
 if (file.exists("renv.lock")) {
-  renv::restore(prompt = FALSE)
+  renv::restore(prompt = FALSE, rebuild=TRUE)
 } else {
   renv::hydrate()
 }
