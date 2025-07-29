@@ -13,7 +13,8 @@ RUN apt-get update && apt-get install -y \
     gdal-bin \
     git \
     libabsl-dev \
-    pkg-config
+    pkg-config \
+    cmake
 RUN install2.r rsconnect renv
 
 # copy deploy script to root of the workspace
