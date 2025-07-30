@@ -15,12 +15,20 @@ RUN apt-get update && apt-get install -y \
     libabsl-dev \
     pkg-config \
     cmake
-RUN install2.r rsconnect renv
 
+# install renv = 1.1.4
+RUN R -e 'install.packages("remotes")'
+RUN R -e 'remotes::install_version("renv", version = "1.1.4")'
+
+# copy everything into root of container
+COPY . .
 # copy deploy script to root of the workspace
-COPY deploy.R /deploy.R
+#COPY deploy.R /deploy.R
+
+# Set working directory to root
+WORKDIR /
 
 # run deploy script, ignoring any .Rprofile files to avoid issues with conflicting
 # library paths.
 # TODO: this may cause issues if the .Rprofile does any setup required for the app to run
-CMD ["Rscript", "--no-init-file", "/deploy.R"]
+CMD ["Rscript", "--no-init-file", "deploy.R"]

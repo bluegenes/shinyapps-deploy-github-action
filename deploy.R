@@ -1,9 +1,13 @@
-.libPaths("/usr/local/lib/R/site-library")
-cat("loading packages from:", paste("\n - ", .libPaths(), collapse = ""), "\n\n")
+#.libPaths("/usr/local/lib/R/site-library")
+#cat("loading packages from:", paste("\n - ", .libPaths(), collapse = ""), "\n\n")
 
 # use renv to detect and install required packages.
 if (file.exists("renv.lock")) {
-  renv::restore(prompt = FALSE, rebuild=TRUE)
+  # report on working directory, renv.lock file status
+  cat("working dir:", getwd(), "\n")
+  cat("renv.lock found:", file.exists("renv.lock"), "\n")
+  renv::restore(prompt = FALSE)
+  cat("renv loaded libraries from:\n", paste(.libPaths(), collapse = "\n"))
 } else {
   renv::hydrate()
 }
