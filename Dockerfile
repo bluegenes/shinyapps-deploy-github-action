@@ -31,4 +31,4 @@ WORKDIR /
 # run deploy script, ignoring any .Rprofile files to avoid issues with conflicting
 # library paths.
 # TODO: this may cause issues if the .Rprofile does any setup required for the app to run
-CMD ["Rscript", "--no-init-file", "deploy.R"]
+CMD ["Rscript", "--no-init-file", "/deploy.R"]
